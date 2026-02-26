@@ -15,8 +15,7 @@
 
 
 * Added Player and Guard with necessary colliders
-* Added makeshift platform
-* Added First-Person camera angle
-* Added player movement
+* Added First-Person camera
+* Added player movement compatible with keyboard and Xbox controller
 * Added NavMesh system
 * Set up basic enemy AI
