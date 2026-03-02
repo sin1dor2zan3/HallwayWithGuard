@@ -112,4 +112,15 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = false;
         }
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Mushroom"))
+        {
+            if (hit.normal.y > 0.5f)
+            {
+                velocity.y = Mathf.Sqrt(10f * -2f * gravity);
+            }
+        }
+    }
 }
