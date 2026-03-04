@@ -63,9 +63,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2e7f32552e8f4992bd8e88c7b569e61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2864147238874573455}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2e7f32552e8f4992bd8e88c7b569e61, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8043435124439094874}
   m_SourcePrefab: {fileID: 100100000, guid: f2e7f32552e8f4992bd8e88c7b569e61, type: 3}
 --- !u!1 &4824761846019840798 stripped
 GameObject:
@@ -93,18 +90,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.06603312
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8043435124439094874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4824761846019840798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf139692638b4571aa372def2d8c50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HatBehavior
-  bobHeight: 0.2
-  bobSpeed: 2
-  rotateSpeed: 40

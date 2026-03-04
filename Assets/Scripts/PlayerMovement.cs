@@ -116,13 +116,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("Hit: " + hit.gameObject.name);
-
         if (hit.gameObject.CompareTag("Mushroom"))
         {
             if (hit.normal.y > 0.5f)
             {
-                velocity.y = Mathf.Sqrt(10f * -2f * gravity);
+                velocity.y = Mathf.Sqrt((jumpForce * 2) * -2f * gravity);
             }
         }
 
