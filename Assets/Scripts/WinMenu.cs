@@ -20,9 +20,4 @@ public class WinMenu : MonoBehaviour {
         SceneManager.LoadSceneAsync(0);
     }
 
-    public void MenuButton() 
-    {
-        SceneManager.LoadSceneAsync(0);
-    }
-
 }
