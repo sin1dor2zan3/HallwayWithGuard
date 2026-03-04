@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class WinMenu : MonoBehaviour {
+public class LoseMenu : MonoBehaviour {
 
     public void ReplayButton() 
     {
