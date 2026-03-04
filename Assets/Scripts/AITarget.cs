@@ -29,7 +29,7 @@ public class AITarget : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("LoseScreen");
+            SceneManager.LoadScene("Lose Screen");
         }
     }
 }

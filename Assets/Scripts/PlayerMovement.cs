@@ -39,18 +39,11 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable() => controls.Enable();
     void OnDisable() => controls.Disable();
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
     void Update()
     {
         Move();
         Look();
         ApplyGravity();
-        CursorToggle();
     }
 
     void Move()
@@ -126,12 +119,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene("LoseScreen");
+            SceneManager.LoadScene("Lose Screen");
         }
 
         if (hit.gameObject.CompareTag("Hat"))
         {
-            SceneManager.LoadScene("WinScreen");
+            SceneManager.LoadScene("Win Screen");
         }
     }
 }

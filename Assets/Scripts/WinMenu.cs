@@ -14,8 +14,8 @@ public class WinMenu : MonoBehaviour {
     {
         Application.Quit();
     }
-
-    public void MainMenuButton()
+    
+    public void MenuButton() 
     {
         SceneManager.LoadSceneAsync(0);
     }

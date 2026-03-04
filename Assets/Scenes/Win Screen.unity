@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2071404089}
+      - m_Target: {fileID: 2071404091}
         m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2071404089}
+      - m_Target: {fileID: 2071404091}
         m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
         m_MethodName: ReplayButton
         m_Mode: 1
@@ -926,9 +926,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2071404089}
+      - m_Target: {fileID: 2071404091}
         m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
-        m_MethodName: MainMenuButton
+        m_MethodName: MenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 2071404087}
   - component: {fileID: 2071404086}
   - component: {fileID: 2071404090}
-  - component: {fileID: 2071404089}
+  - component: {fileID: 2071404091}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1458,18 +1458,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071404089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071404085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afa5db8340e7cb541b57914299742dc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WinMenu
 --- !u!114 &2071404090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,6 +1502,18 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &2071404091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071404085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa5db8340e7cb541b57914299742dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WinMenu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
