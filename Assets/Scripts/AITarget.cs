@@ -1,37 +1,35 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AITarget : MonoBehaviour
 {
     public Transform target;
-    public float attackRange;
-
     private NavMeshAgent agent;
-    //private Animator;
-    private float distanceToTarget;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    Vector3 lastPlayerPos;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //animator = GetComponent<Animator>();
+        lastPlayerPos = target.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance(agent.transform.position, target.position);
-
-        if(distanceToTarget < attackRange)
+        if (Vector3.Distance(lastPlayerPos, target.position) > 0.5f)
         {
-            agent.isStopped = true;
-            //animator.SetBool("Attack", true);
-        }
-        else
-        {
-            agent.isStopped = false;
-            //animator.SetBool("Attack", false);
             agent.SetDestination(target.position);
+            lastPlayerPos = target.position;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("LoseScreen");
         }
     }
 }

@@ -26,4 +26,5 @@
 
 
 
-* Added mushrooms that bounce player when they land on  them
+* Added mushrooms that bounce player when they land on them
+* Added Win and Lose conditions when touching enemy or MacGuffin

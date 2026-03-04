@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -119,8 +120,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.normal.y > 0.5f)
             {
-                velocity.y = Mathf.Sqrt(10f * -2f * gravity);
+                velocity.y = Mathf.Sqrt((jumpForce * 2) * -2f * gravity);
             }
+        }
+
+        if (hit.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
+
+        if (hit.gameObject.CompareTag("Hat"))
+        {
+            SceneManager.LoadScene("WinScreen");
         }
     }
 }
