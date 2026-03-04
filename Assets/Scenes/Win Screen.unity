@@ -926,7 +926,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< Updated upstream
       - m_Target: {fileID: 2071404091}
+=======
+      - m_Target: {fileID: 2071404089}
+>>>>>>> Stashed changes
         m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
         m_MethodName: MenuButton
         m_Mode: 1
