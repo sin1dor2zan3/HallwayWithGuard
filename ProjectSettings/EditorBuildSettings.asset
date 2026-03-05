@@ -4,6 +4,33 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< Updated upstream
   m_Scenes: []
   m_configObjects: {}
+=======
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 028a6d2183934b1448bffe969c55df99
+  - enabled: 1
+    path: Assets/Scenes/Win Screen.unity
+    guid: fdf02ee0e4639194cb06f23952401fa2
+  - enabled: 1
+    path: Assets/Scenes/GameScreen.unity
+    guid: e435fe5c839ffcf4fb63ffefc82e8173
+  - enabled: 1
+    path: Assets/Scenes/Lose Screen.unity
+    guid: dd4f90ef180d37049af35fa128b58781
+  - enabled: 0
+    path: Assets/Scenes/WinScreen.unity
+    guid: 6fab46a3b51d1c8488bb022b9ad29dc2
+  - enabled: 1
+    path: Assets/Scenes/GameScreen.unity
+    guid: e435fe5c839ffcf4fb63ffefc82e8173
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+>>>>>>> Stashed changes
   m_UseUCBPForAssetBundles: 0
