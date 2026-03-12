@@ -14,6 +14,22 @@ public class PlayerMovement : MonoBehaviour
     public float stickSensitivity = 180f;
     public Transform cameraPivot;
 
+    [Header("Footsteps")]
+    public AudioSource footstepSource;
+
+    public AudioClip leftFootstep;
+    public AudioClip rightFootstep;
+
+    [Header("Wood Footstep")]
+    public AudioClip woodFootstep;
+
+    public float walkStepDelay = 0.5f;
+
+    private float stepTimer;
+    private bool isLeftStep = true;
+
+    private string currentSurface = "Ground";
+
     CharacterController controller;
     PlayerControls controls;
 
@@ -44,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Look();
         ApplyGravity();
+        HandleFootsteps();
     }
 
     void Move()
@@ -91,24 +108,45 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void CursorToggle()
+    void HandleFootsteps()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        bool isMoving = moveInput.magnitude > 0.1f;
+        bool grounded = controller.isGrounded;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame &&
-            Cursor.lockState != CursorLockMode.Locked)
+        if (isMoving && grounded)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0f)
+            {
+                AudioClip clipToPlay = null;
+
+                if (currentSurface == "Wood")
+                {
+                    clipToPlay = woodFootstep;
+                }
+                else
+                {
+                    clipToPlay = isLeftStep ? leftFootstep : rightFootstep;
+                }
+
+                if (clipToPlay != null)
+                    footstepSource.PlayOneShot(clipToPlay);
+
+                isLeftStep = !isLeftStep;
+                stepTimer = walkStepDelay;
+            }
+        }
+        else
+        {
+            stepTimer = 0f;
         }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        currentSurface = hit.gameObject.tag;
+
         if (hit.gameObject.CompareTag("Mushroom"))
         {
             if (hit.normal.y > 0.5f)
