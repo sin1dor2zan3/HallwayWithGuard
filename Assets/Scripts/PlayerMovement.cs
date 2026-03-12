@@ -157,12 +157,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene("Lose Screen");
+            SceneManager.LoadSceneAsync(2);
         }
 
         if (hit.gameObject.CompareTag("Hat"))
         {
-            SceneManager.LoadScene("Win Screen");
+            SceneManager.LoadSceneAsync(3);
         }
     }
 }
