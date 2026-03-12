@@ -8,20 +8,55 @@ public class AITarget : MonoBehaviour
     public Transform target;
     private NavMeshAgent agent;
 
-    Vector3 lastPlayerPos;
+    [Header("Chasing")]
+    public float chaseDistance;
+    public bool isChasing;
+
+    [Header("Roaming")]
+    public float roamRadius;
+    public float roamDelay;
+
+    float roamTimer;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        lastPlayerPos = target.position;
+        PickRoamPoint();
     }
 
     void Update()
     {
-        if (Vector3.Distance(lastPlayerPos, target.position) > 0.5f)
+        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+
+        if (distanceToPlayer <= chaseDistance)
         {
+            isChasing = true;
             agent.SetDestination(target.position);
-            lastPlayerPos = target.position;
+        }
+        else
+        {
+            isChasing = false;
+
+            roamTimer += Time.deltaTime;
+
+            if (roamTimer >= roamDelay && agent.remainingDistance < 1f)
+            {
+                PickRoamPoint();
+                roamTimer = 0f;
+            }
+        }
+    }
+
+    void PickRoamPoint()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+        randomDirection += transform.position;
+
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(randomDirection, out hit, roamRadius, NavMesh.AllAreas))
+        {
+            agent.SetDestination(hit.position);
         }
     }
 
@@ -29,7 +64,7 @@ public class AITarget : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Lose Screen");
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

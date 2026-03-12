@@ -476,7 +476,6 @@ GameObject:
   - component: {fileID: 410139949}
   - component: {fileID: 410139948}
   - component: {fileID: 410139951}
-  - component: {fileID: 410139953}
   - component: {fileID: 410139952}
   m_Layer: 0
   m_Name: Main Camera
@@ -613,18 +612,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e67c08dd5889354496838dbb4d4af4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &410139953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410139947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55475667a67de2b4aad8b6d305dbeb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &412981920
@@ -1488,7 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 834581189}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1332357769
