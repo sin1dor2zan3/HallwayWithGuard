@@ -22,11 +22,10 @@ Suro, Paola - Art
 
 
 
-Zanfardino, Sinclair - Lead, Art
+Zanfardino, Sinclair - Project Manager, Art
 
 
 
-Hammond, Grace - Art
 
 
 
