@@ -164,11 +164,15 @@ public class PlayerMovement : MonoBehaviour
         if (hit.gameObject.CompareTag("Enemy"))
         {
             SceneManager.LoadSceneAsync(2);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         if (hit.gameObject.CompareTag("Hat"))
         {
             SceneManager.LoadSceneAsync(3);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
