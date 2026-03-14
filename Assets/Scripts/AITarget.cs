@@ -3,10 +3,12 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AudioSource))]
 public class AITarget : MonoBehaviour
 {
     public Transform target;
     private NavMeshAgent agent;
+    private AudioSource audioSource;
 
     [Header("Chasing")]
     public float chaseDistance;
@@ -16,11 +18,16 @@ public class AITarget : MonoBehaviour
     public float roamRadius;
     public float roamDelay;
 
+    [Header("Audio")]
+    public AudioClip screechClip;
+
     float roamTimer;
+    private bool hasScreeched = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
         PickRoamPoint();
     }
 
@@ -30,12 +37,18 @@ public class AITarget : MonoBehaviour
 
         if (distanceToPlayer <= chaseDistance)
         {
+            if (!isChasing)
+            {
+                PlayScreech();
+            }
+
             isChasing = true;
             agent.SetDestination(target.position);
         }
         else
         {
             isChasing = false;
+            hasScreeched = false;
 
             roamTimer += Time.deltaTime;
 
@@ -57,6 +70,16 @@ public class AITarget : MonoBehaviour
         if (NavMesh.SamplePosition(randomDirection, out hit, roamRadius, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
+        }
+    }
+
+    void PlayScreech()
+    {
+        if (!hasScreeched && screechClip != null && audioSource != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(screechClip);
+            hasScreeched = true;
         }
     }
 
