@@ -22,7 +22,7 @@ Suro, Paola - Art
 
 
 
-Zanfardino, Sinclair - Project Manager, Art
+Zanfardino, Sinclair - Project Manager, Art & Audio Design
 
 
 
