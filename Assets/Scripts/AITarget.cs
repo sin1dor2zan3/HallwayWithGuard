@@ -7,27 +7,33 @@ using UnityEngine.SceneManagement;
 public class AITarget : MonoBehaviour
 {
     public Transform target;
+
     private NavMeshAgent agent;
     private AudioSource audioSource;
+    private Animator anim;
 
     [Header("Chasing")]
-    public float chaseDistance;
+    public float chaseDistance = 10f;
     public bool isChasing;
 
     [Header("Roaming")]
-    public float roamRadius;
-    public float roamDelay;
+    public float roamRadius = 20f;
+    public float roamDelay = 3f;
 
     [Header("Audio")]
     public AudioClip screechClip;
 
-    float roamTimer;
+    private float roamTimer;
     private bool hasScreeched = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+
+        // Find the animator on the fox model (child object)
+        anim = GetComponentInChildren<Animator>();
+
         PickRoamPoint();
     }
 
@@ -57,6 +63,12 @@ public class AITarget : MonoBehaviour
                 PickRoamPoint();
                 roamTimer = 0f;
             }
+        }
+
+        // Tell the Animator whether the fox should run or walk
+        if (anim != null)
+        {
+            anim.SetBool("isChasing", isChasing);
         }
     }
 
