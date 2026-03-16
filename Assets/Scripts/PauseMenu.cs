@@ -9,13 +9,19 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] InputActionReference pauseAction;
-
     [SerializeField] GameObject firstButton;
+    [SerializeField] AudioSource pauseMusic;
+    [SerializeField] AudioSource levelMusic;
 
     void Start()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+
+        if (pauseMusic != null)
+        {
+            pauseMusic.Stop();
+        }
     }
 
     void OnEnable()
@@ -37,6 +43,17 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             gamePaused = true;
             pauseMenu.SetActive(true);
+
+            if (levelMusic != null && levelMusic.isPlaying)
+            {
+                levelMusic.Pause();
+            }
+
+            if (pauseMusic != null && !pauseMusic.isPlaying)
+            {
+                pauseMusic.Play();
+            }
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             EventSystem.current.SetSelectedGameObject(firstButton);
@@ -46,6 +63,17 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1;
             gamePaused = false;
             pauseMenu.SetActive(false);
+
+            if (pauseMusic != null && pauseMusic.isPlaying)
+            {
+                pauseMusic.Stop();
+            }
+
+            if (levelMusic != null)
+            {
+                levelMusic.UnPause();
+            }
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -56,6 +84,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         gamePaused = false;
         pauseMenu.SetActive(false);
+
+        if (pauseMusic != null && pauseMusic.isPlaying)
+        {
+            pauseMusic.Stop();
+        }
+
+        if (levelMusic != null)
+        {
+            levelMusic.UnPause();
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -63,6 +102,17 @@ public class PauseMenu : MonoBehaviour
     public void RestartButton()
     {
         Time.timeScale = 1;
+
+        if (pauseMusic != null && pauseMusic.isPlaying)
+        {
+            pauseMusic.Stop();
+        }
+
+        if (levelMusic != null)
+        {
+            levelMusic.Stop();
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
