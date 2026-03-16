@@ -29,13 +29,22 @@ public class MushroomBounce : MonoBehaviour
 
         canTrigger = false;
 
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
-        audioSource.PlayOneShot(audioSource.clip);
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(audioSource.clip);
+        }
 
         if (puffEffect != null)
         {
             puffEffect.transform.position = other.ClosestPoint(transform.position) + Vector3.up * 0.1f;
             puffEffect.Play();
+        }
+
+        HandBob handBob = other.GetComponentInChildren<HandBob>();
+        if (handBob != null)
+        {
+            handBob.TriggerMushroomBounce();
         }
 
         if (!isAnimating)

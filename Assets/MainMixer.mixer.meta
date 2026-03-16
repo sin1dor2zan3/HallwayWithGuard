@@ -1,15 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/MainMixer.mixer.meta
 guid: 6fe016343a9954fcb95222a6ec5261be
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 24100000
-========
-guid: 5d6f8ba51e52748c89b6b474d9366ec8
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
->>>>>>>> eefa9fa19b86a9fe0033cd5c521f76d06f6994f2:Assets/Materials/Ground.mat.meta
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
