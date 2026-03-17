@@ -20,6 +20,8 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
+        enemyAI = GameObject.FindGameObjectWithTag("Enemy")?.GetComponent<AITarget>();
+
         if (enemyAI != null && enemyAI.isChasing)
         {
             SetChased();

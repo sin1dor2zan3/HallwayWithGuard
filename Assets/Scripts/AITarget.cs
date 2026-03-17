@@ -27,7 +27,7 @@ public class AITarget : MonoBehaviour
     private bool hasScreeched = false;
 
     void Start()
-    {
+    {        
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
 
@@ -39,6 +39,7 @@ public class AITarget : MonoBehaviour
 
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
         if (distanceToPlayer <= chaseDistance)
